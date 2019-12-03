@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/egor/CLionProjects/HW_02/include/Board.h
+cstddef
+-
+
+/home/egor/CLionProjects/HW_02/include/BoardView.h
+
+/home/egor/CLionProjects/HW_02/src/Board.cpp
+../include/Board.h
+/home/egor/CLionProjects/HW_02/include/Board.h
+
+/home/egor/CLionProjects/HW_02/src/BoardView.cpp
+../include/BoardView.h
+/home/egor/CLionProjects/HW_02/include/BoardView.h
+
+/home/egor/CLionProjects/HW_02/src/main.cpp
+iostream
+-
+

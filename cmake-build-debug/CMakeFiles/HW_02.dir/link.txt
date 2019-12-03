@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/HW_02.dir/src/main.cpp.o CMakeFiles/HW_02.dir/src/BoardView.cpp.o CMakeFiles/HW_02.dir/src/Board.cpp.o  -o HW_02 
