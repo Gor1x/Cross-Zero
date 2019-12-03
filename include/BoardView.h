@@ -10,10 +10,13 @@ public:
     explicit BoardView(Board &board_);
     void doGameCycle();
     void showBoard() const;
+    void printGameResult();
 
 private:
 
-    int turnNumber = 0;
+    void applyMove(size_t x, size_t y, char currentSign);
+    void readCoordinates(size_t &x, size_t &y, char currentSign);
+
     Board& board;
 };
 

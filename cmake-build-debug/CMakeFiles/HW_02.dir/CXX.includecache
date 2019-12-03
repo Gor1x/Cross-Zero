@@ -10,9 +10,13 @@
 cstddef
 -
 
-/home/egor/CLionProjects/HW_02/src/Board.cpp
-regex
--
-../include/Board.h
+/home/egor/CLionProjects/HW_02/include/BoardView.h
+Board.h
 /home/egor/CLionProjects/HW_02/include/Board.h
+
+/home/egor/CLionProjects/HW_02/src/BoardView.cpp
+iostream
+-
+../include/BoardView.h
+/home/egor/CLionProjects/HW_02/include/BoardView.h
 
