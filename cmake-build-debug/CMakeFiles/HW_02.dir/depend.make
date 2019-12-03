@@ -4,8 +4,11 @@
 CMakeFiles/HW_02.dir/src/Board.cpp.o: ../include/Board.h
 CMakeFiles/HW_02.dir/src/Board.cpp.o: ../src/Board.cpp
 
+CMakeFiles/HW_02.dir/src/BoardView.cpp.o: ../include/Board.h
 CMakeFiles/HW_02.dir/src/BoardView.cpp.o: ../include/BoardView.h
 CMakeFiles/HW_02.dir/src/BoardView.cpp.o: ../src/BoardView.cpp
 
+CMakeFiles/HW_02.dir/src/main.cpp.o: ../include/Board.h
+CMakeFiles/HW_02.dir/src/main.cpp.o: ../include/BoardView.h
 CMakeFiles/HW_02.dir/src/main.cpp.o: ../src/main.cpp
 
