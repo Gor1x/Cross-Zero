@@ -2,13 +2,28 @@
 #include "../include/Board.h"
 
 
-Board::Board(size_t width_, size_t height_) : width(width_), height(height_), currentState(RUNNING) {
+Board::Board(size_t height_, size_t width_) : width(width_), height(height_), currentState(IN_PROGRESS) {
     initData();
 }
 
 void Board::move(size_t x, size_t y, char sign)
 {
+    if (x == -1 && y == -1)
+    {
+        interruptGame();
+        return;
+    }
     data[x][y] = POSITION_STATE(sign);
+
+    checkIfStateChanged(x, y);
+
+    if (currentState == IN_PROGRESS && turnNumber == width * height)
+    {
+        currentState = DRAW;
+        return;
+    }
+
+    turnNumber++;
 }
 
 bool Board::canMove(size_t x, size_t y, char sign) const
@@ -63,8 +78,8 @@ int Board::countElements(size_t x, size_t y, const POSITION_STATE state, const i
 void Board::checkIfStateChanged(size_t x, size_t y)
 {
     const std::pair<int, int> direction[4] = {
-            {+1, -1}, //sideDiagonal
-            {+1, +1}, //mainDiagonal
+            {+1, -1}, //side Diagonal
+            {+1, +1}, //main Diagonal
             {+1, 0}, //vertical
             {0, +1}, //horizontal;
     };
@@ -82,7 +97,7 @@ void Board::checkIfStateChanged(size_t x, size_t y)
             {
                 currentState = X_WIN;
             }
-            else
+            else //state == O_WIN
             {
                 currentState = O_WIN;
             }
@@ -102,9 +117,10 @@ int Board::getTurnNumber() const
     return turnNumber;
 }
 
-void Board::incrementTurnNumber()
+Board::~Board()
 {
-    turnNumber++;
+    delete[] data[0];
+    delete[] data;
 }
 
 

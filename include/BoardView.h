@@ -14,7 +14,6 @@ public:
 
 private:
 
-    void applyMove(size_t x, size_t y, char currentSign);
     void readCoordinates(size_t &x, size_t &y, char currentSign);
 
     Board& board;

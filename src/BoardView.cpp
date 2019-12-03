@@ -1,8 +1,6 @@
-#include <iostream>
+#include <cstdio>
 #include "../include/BoardView.h"
 
-using std::cout;
-using std::endl;
 
 BoardView::BoardView(Board &board_) : board(board_) {
 }
@@ -13,68 +11,57 @@ void BoardView::showBoard() const
     {
         for (size_t j = 0; j < board.getWidth(); j++)
         {
-            cout << char(board.get(i, j));
+            printf("%c", char(board.get(i, j)));
         }
-        cout << endl;
+        printf("\n");
     }
 }
 
 void BoardView::doGameCycle()
 {
-    if (board.gameState() != RUNNING)
+    if (board.gameState() != IN_PROGRESS)
         return;
 
     showBoard();
 
     char currentSign = (board.getTurnNumber() % 2)
-                       ? 'X'
-                       : 'O';
+                       ? 'O'
+                       : 'X';
 
     size_t x, y;
     readCoordinates(x, y, currentSign);
 
-    if (x == -1 && y == -1)
-    {
-        board.interruptGame();
-        return;
-    }
-
-    applyMove(x, y, currentSign);
-}
-
-void BoardView::applyMove(size_t x, size_t y, char currentSign)
-{
-    board.incrementTurnNumber();
     board.move(x, y, currentSign);
-    board.checkIfStateChanged(x, y);
 }
 
 void BoardView::readCoordinates(size_t &x, size_t &y, char currentSign)
 {
-    cout << currentSign <<" move: ";
-    std::cin >> x >> y;
+    printf("%c move: ", currentSign);
+    scanf("%zu %zu", &x, &y);
+
     if (x == -1 && y == -1)
     {
         return;
     }
     if (!board.canMove(x, y, currentSign))
     {
-        cout << "Bad move!" << endl;
+        printf("Bad move!\n");
         readCoordinates(x, y, currentSign);
         return;
     }
-    cout << endl;
+    printf("\n");
 
 }
 
 void BoardView::printGameResult()
 {
+    showBoard();
     if (board.gameState() == X_WIN)
-        cout << "X wins!" << endl;
+        printf("X wins!");
     else if (board.gameState() == O_WIN)
-        cout<< "O wins!" << endl;
+        printf("O wins!");
     else
-        cout <<"Draw." << endl;
+        printf("Draw.");
 }
 
 

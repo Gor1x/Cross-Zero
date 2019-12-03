@@ -4,7 +4,7 @@
 #include <cstddef>
 
 enum GAME_STATE {
-    RUNNING,
+    IN_PROGRESS,
     X_WIN,
     O_WIN,
     DRAW,
@@ -24,9 +24,7 @@ class Board
 public:
     int getTurnNumber() const;
 
-    void incrementTurnNumber();
-
-    Board(size_t width, size_t height);
+    Board(size_t height_, size_t width_);
 
     void move(size_t x, size_t y, char sign);
 
@@ -34,19 +32,19 @@ public:
 
     GAME_STATE gameState() const;
 
-    void interruptGame();
-
     POSITION_STATE get(size_t x, size_t y) const;
 
     size_t getWidth() const;
 
     size_t getHeight() const;
 
-    void checkIfStateChanged(size_t x, size_t y);
+    ~Board();
 
 private:
-    void initData();
 
+    void interruptGame();
+    void initData();
+    void checkIfStateChanged(size_t x, size_t y);
     int countElements(size_t x, size_t y, const POSITION_STATE state, const int X_DELTA, const int Y_DELTA);
 
 private:
@@ -56,7 +54,7 @@ private:
     POSITION_STATE ** data;
 
     GAME_STATE currentState;
-    int turnNumber = 0;
+    int turnNumber = 1;
 
 };
 

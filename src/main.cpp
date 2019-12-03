@@ -3,9 +3,9 @@
 
 int main()
 {
-    Board board(10, 10);
+    Board board(1, 1);
     BoardView boardView(board);
-    while (board.gameState() == RUNNING)
+    while (board.gameState() == IN_PROGRESS)
     {
         boardView.doGameCycle();
     }
