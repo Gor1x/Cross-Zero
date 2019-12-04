@@ -8,6 +8,10 @@ CMakeFiles/HW_02.dir/src/BoardView.cpp.o
  /home/egor/CLionProjects/HW_02/include/Board.h
  /home/egor/CLionProjects/HW_02/include/BoardView.h
  /home/egor/CLionProjects/HW_02/src/BoardView.cpp
+CMakeFiles/HW_02.dir/src/NCursesBoardView.cpp.o
+ /home/egor/CLionProjects/HW_02/include/Board.h
+ /home/egor/CLionProjects/HW_02/include/NCursesBoardView.h
+ /home/egor/CLionProjects/HW_02/src/NCursesBoardView.cpp
 CMakeFiles/HW_02.dir/src/main.cpp.o
  /home/egor/CLionProjects/HW_02/include/Board.h
  /home/egor/CLionProjects/HW_02/include/BoardView.h

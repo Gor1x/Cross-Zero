@@ -11,13 +11,11 @@ enum GAME_STATE {
     INTERRUPTED
 };
 
-
 enum POSITION_STATE {
     X_SIGN = 'X',
     O_SIGN = 'O',
     EMPTY = '.'
 };
-
 
 class Board
 {

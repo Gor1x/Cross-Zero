@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/HW_02.dir/src/Board.cpp.o"
   "CMakeFiles/HW_02.dir/src/BoardView.cpp.o"
+  "CMakeFiles/HW_02.dir/src/NCursesBoardView.cpp.o"
   "CMakeFiles/HW_02.dir/src/main.cpp.o"
   "HW_02"
   "HW_02.pdb"

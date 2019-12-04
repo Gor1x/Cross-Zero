@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named test
+
+# Build rule for target.
+test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test
+.PHONY : test
+
+# fast build rule for target.
+test/fast:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
+.PHONY : test/fast
+
+#=============================================================================
 # Target rules for targets named HW_02
 
 # Build rule for target.
@@ -129,6 +142,7 @@ src/Board.o: src/Board.cpp.o
 
 # target to build an object file
 src/Board.cpp.o:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/Board.cpp.o
 	$(MAKE) -f CMakeFiles/HW_02.dir/build.make CMakeFiles/HW_02.dir/src/Board.cpp.o
 .PHONY : src/Board.cpp.o
 
@@ -138,6 +152,7 @@ src/Board.i: src/Board.cpp.i
 
 # target to preprocess a source file
 src/Board.cpp.i:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/Board.cpp.i
 	$(MAKE) -f CMakeFiles/HW_02.dir/build.make CMakeFiles/HW_02.dir/src/Board.cpp.i
 .PHONY : src/Board.cpp.i
 
@@ -147,8 +162,36 @@ src/Board.s: src/Board.cpp.s
 
 # target to generate assembly for a file
 src/Board.cpp.s:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/Board.cpp.s
 	$(MAKE) -f CMakeFiles/HW_02.dir/build.make CMakeFiles/HW_02.dir/src/Board.cpp.s
 .PHONY : src/Board.cpp.s
+
+src/BoardTest.o: src/BoardTest.cpp.o
+
+.PHONY : src/BoardTest.o
+
+# target to build an object file
+src/BoardTest.cpp.o:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/BoardTest.cpp.o
+.PHONY : src/BoardTest.cpp.o
+
+src/BoardTest.i: src/BoardTest.cpp.i
+
+.PHONY : src/BoardTest.i
+
+# target to preprocess a source file
+src/BoardTest.cpp.i:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/BoardTest.cpp.i
+.PHONY : src/BoardTest.cpp.i
+
+src/BoardTest.s: src/BoardTest.cpp.s
+
+.PHONY : src/BoardTest.s
+
+# target to generate assembly for a file
+src/BoardTest.cpp.s:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/BoardTest.cpp.s
+.PHONY : src/BoardTest.cpp.s
 
 src/BoardView.o: src/BoardView.cpp.o
 
@@ -156,6 +199,7 @@ src/BoardView.o: src/BoardView.cpp.o
 
 # target to build an object file
 src/BoardView.cpp.o:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/BoardView.cpp.o
 	$(MAKE) -f CMakeFiles/HW_02.dir/build.make CMakeFiles/HW_02.dir/src/BoardView.cpp.o
 .PHONY : src/BoardView.cpp.o
 
@@ -165,6 +209,7 @@ src/BoardView.i: src/BoardView.cpp.i
 
 # target to preprocess a source file
 src/BoardView.cpp.i:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/BoardView.cpp.i
 	$(MAKE) -f CMakeFiles/HW_02.dir/build.make CMakeFiles/HW_02.dir/src/BoardView.cpp.i
 .PHONY : src/BoardView.cpp.i
 
@@ -174,8 +219,63 @@ src/BoardView.s: src/BoardView.cpp.s
 
 # target to generate assembly for a file
 src/BoardView.cpp.s:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/BoardView.cpp.s
 	$(MAKE) -f CMakeFiles/HW_02.dir/build.make CMakeFiles/HW_02.dir/src/BoardView.cpp.s
 .PHONY : src/BoardView.cpp.s
+
+src/NCursesBoardView.o: src/NCursesBoardView.cpp.o
+
+.PHONY : src/NCursesBoardView.o
+
+# target to build an object file
+src/NCursesBoardView.cpp.o:
+	$(MAKE) -f CMakeFiles/HW_02.dir/build.make CMakeFiles/HW_02.dir/src/NCursesBoardView.cpp.o
+.PHONY : src/NCursesBoardView.cpp.o
+
+src/NCursesBoardView.i: src/NCursesBoardView.cpp.i
+
+.PHONY : src/NCursesBoardView.i
+
+# target to preprocess a source file
+src/NCursesBoardView.cpp.i:
+	$(MAKE) -f CMakeFiles/HW_02.dir/build.make CMakeFiles/HW_02.dir/src/NCursesBoardView.cpp.i
+.PHONY : src/NCursesBoardView.cpp.i
+
+src/NCursesBoardView.s: src/NCursesBoardView.cpp.s
+
+.PHONY : src/NCursesBoardView.s
+
+# target to generate assembly for a file
+src/NCursesBoardView.cpp.s:
+	$(MAKE) -f CMakeFiles/HW_02.dir/build.make CMakeFiles/HW_02.dir/src/NCursesBoardView.cpp.s
+.PHONY : src/NCursesBoardView.cpp.s
+
+src/Test.o: src/Test.cpp.o
+
+.PHONY : src/Test.o
+
+# target to build an object file
+src/Test.cpp.o:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/Test.cpp.o
+.PHONY : src/Test.cpp.o
+
+src/Test.i: src/Test.cpp.i
+
+.PHONY : src/Test.i
+
+# target to preprocess a source file
+src/Test.cpp.i:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/Test.cpp.i
+.PHONY : src/Test.cpp.i
+
+src/Test.s: src/Test.cpp.s
+
+.PHONY : src/Test.s
+
+# target to generate assembly for a file
+src/Test.cpp.s:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/Test.cpp.s
+.PHONY : src/Test.cpp.s
 
 src/main.o: src/main.cpp.o
 
@@ -204,6 +304,33 @@ src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/HW_02.dir/build.make CMakeFiles/HW_02.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/test.o: src/test.cpp.o
+
+.PHONY : src/test.o
+
+# target to build an object file
+src/test.cpp.o:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/test.cpp.o
+.PHONY : src/test.cpp.o
+
+src/test.i: src/test.cpp.i
+
+.PHONY : src/test.i
+
+# target to preprocess a source file
+src/test.cpp.i:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/test.cpp.i
+.PHONY : src/test.cpp.i
+
+src/test.s: src/test.cpp.s
+
+.PHONY : src/test.s
+
+# target to generate assembly for a file
+src/test.cpp.s:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/test.cpp.s
+.PHONY : src/test.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -211,17 +338,30 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... HW_02"
 	@echo "... edit_cache"
+	@echo "... test"
+	@echo "... HW_02"
 	@echo "... src/Board.o"
 	@echo "... src/Board.i"
 	@echo "... src/Board.s"
+	@echo "... src/BoardTest.o"
+	@echo "... src/BoardTest.i"
+	@echo "... src/BoardTest.s"
 	@echo "... src/BoardView.o"
 	@echo "... src/BoardView.i"
 	@echo "... src/BoardView.s"
+	@echo "... src/NCursesBoardView.o"
+	@echo "... src/NCursesBoardView.i"
+	@echo "... src/NCursesBoardView.s"
+	@echo "... src/Test.o"
+	@echo "... src/Test.i"
+	@echo "... src/Test.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/test.o"
+	@echo "... src/test.i"
+	@echo "... src/test.s"
 .PHONY : help
 
 

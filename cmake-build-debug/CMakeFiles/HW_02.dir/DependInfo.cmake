@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/egor/CLionProjects/HW_02/src/Board.cpp" "/home/egor/CLionProjects/HW_02/cmake-build-debug/CMakeFiles/HW_02.dir/src/Board.cpp.o"
   "/home/egor/CLionProjects/HW_02/src/BoardView.cpp" "/home/egor/CLionProjects/HW_02/cmake-build-debug/CMakeFiles/HW_02.dir/src/BoardView.cpp.o"
+  "/home/egor/CLionProjects/HW_02/src/NCursesBoardView.cpp" "/home/egor/CLionProjects/HW_02/cmake-build-debug/CMakeFiles/HW_02.dir/src/NCursesBoardView.cpp.o"
   "/home/egor/CLionProjects/HW_02/src/main.cpp" "/home/egor/CLionProjects/HW_02/cmake-build-debug/CMakeFiles/HW_02.dir/src/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

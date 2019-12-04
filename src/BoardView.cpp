@@ -22,7 +22,8 @@ void BoardView::doGameCycle()
     if (board.gameState() != IN_PROGRESS)
         return;
 
-    showBoard();
+    if (!SILENCE)
+        showBoard();
 
     char currentSign = (board.getTurnNumber() % 2)
                        ? 'O'
