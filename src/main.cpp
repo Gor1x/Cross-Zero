@@ -1,10 +1,11 @@
 #include "../include/Board.h"
 #include "../include/BoardView.h"
 
-int main()
+int main(int argc, char ** argv)
 {
-    Board board(1, 1);
-    BoardView boardView(board);
+    Board board(3, 3);
+    BoardView boardView(board, false);
+
     while (board.gameState() == IN_PROGRESS)
     {
         boardView.doGameCycle();

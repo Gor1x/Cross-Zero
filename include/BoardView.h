@@ -7,7 +7,7 @@
 class BoardView
 {
 public:
-    explicit BoardView(Board &board_);
+    explicit BoardView(Board &board_, bool isSilent);
     void doGameCycle();
     void showBoard() const;
     void printGameResult();
@@ -17,6 +17,7 @@ private:
     void readCoordinates(size_t &x, size_t &y, char currentSign);
 
     Board& board;
+    const bool SILENCE;
 };
 
 

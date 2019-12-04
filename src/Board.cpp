@@ -1,4 +1,4 @@
-#include <regex>
+#include <algorithm>
 #include "../include/Board.h"
 
 
@@ -26,7 +26,7 @@ void Board::move(size_t x, size_t y, char sign)
     turnNumber++;
 }
 
-bool Board::canMove(size_t x, size_t y, char sign) const
+bool Board::canMove(size_t x, size_t y) const
 {
     return x < height && y < width && get(x, y) == EMPTY;
 }

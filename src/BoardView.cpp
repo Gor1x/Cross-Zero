@@ -2,7 +2,7 @@
 #include "../include/BoardView.h"
 
 
-BoardView::BoardView(Board &board_) : board(board_) {
+BoardView::BoardView(Board &board_, bool isSilent) : board(board_), SILENCE(isSilent) {
 }
 
 void BoardView::showBoard() const
@@ -43,7 +43,7 @@ void BoardView::readCoordinates(size_t &x, size_t &y, char currentSign)
     {
         return;
     }
-    if (!board.canMove(x, y, currentSign))
+    if (!board.canMove(x, y))
     {
         printf("Bad move!\n");
         readCoordinates(x, y, currentSign);

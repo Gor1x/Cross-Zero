@@ -28,7 +28,7 @@ public:
 
     void move(size_t x, size_t y, char sign);
 
-    bool canMove(size_t x, size_t y, char sign) const;
+    bool canMove(size_t x, size_t y) const;
 
     GAME_STATE gameState() const;
 
