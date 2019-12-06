@@ -1,32 +1,22 @@
 #include "NCursesBoardView.h"
 
 NCursesBoardView::NCursesBoardView(Board &board_) : board(board_),
-                                                    cursor(board.getWidth(),
-                                                            board.getHeight(),
+                                                    cursor(board.getHeight(),
+                                                            board.getWidth(),
                                                                 board)
 {
+    init();
+
 }
 
 void NCursesBoardView::showBoard() const
 {
-    mvprintw(0, 0, "");
+    move(0, 0);
     for (size_t i = 0; i < board.getHeight(); i++)
     {
         for (size_t j = 0; j < board.getWidth(); j++)
         {
-            POSITION_STATE current = board.get(i, j);
-
-            int color;
-            if (current == X_SIGN)
-                color = X_COLOR;
-            else if (current == O_SIGN)
-                color = O_COLOR;
-            else
-                color = BACKGROUND_COLOR;
-
-            attron(COLOR_PAIR(color));
-            printw("%c", char(board.get(i, j)));
-            attroff(COLOR_PAIR(color));
+            cursor.drawColored(i, j, false);
         }
         printw("\n");
     }
@@ -41,7 +31,9 @@ void NCursesBoardView::doGameCycle()
         return;
     move(0, 0);
     showBoard();
-    move(0, 0);
+
+    cursor.moveToPosition();
+
 
 
     char currentSign = (board.getTurnNumber() % 2)
@@ -84,6 +76,37 @@ void NCursesBoardView::printGameResult()
         printw("Draw.");
 }
 
+void NCursesBoardView::init()
+{
+    initscr();
+
+    move(0, 0);
+
+    raw();
+    noecho();
+    keypad(stdscr, true);
+
+    start_color();
+    init_pair(BACKGROUND_COLOR, COLOR_WHITE, COLOR_BLACK);
+    init_pair(CURSOR_COLOR, COLOR_WHITE, COLOR_BLACK);
+    init_pair(X_COLOR, COLOR_BLUE, COLOR_BLACK);
+    init_pair(O_COLOR, COLOR_RED, COLOR_BLACK);
+
+
+    attron(PAIR_NUMBER(BACKGROUND_COLOR));
+
+    auto local_win = newwin(board.getHeight() + 2, board.getWidth() + 2, 0, 0);
+    box(local_win, 0, 0);
+    wrefresh(local_win);/* 0, 0 gives default characters
+     * for the vertical and horizontal
+     * lines */
+   // wborder(local_win, '|', '|', '-', '-', '+', '+', '+', '+');
+    wmove(local_win, 0, 0);
+    //wprintw(local_win, "kek");
+    wrefresh(local_win); /* Show that box */
+    delwin(local_win);
+}
+
 NCursesBoardView::Cursor::Cursor(size_t height_, size_t width_, Board &board_) : width(width_),
                                                                                     height(height_),
                                                                                     board(board_)
@@ -104,8 +127,7 @@ size_t NCursesBoardView::Cursor::getY() const
 void NCursesBoardView::Cursor::remove()
 {
     ::move(getX(), getY());
-    attron(PAIR_NUMBER(BACKGROUND_COLOR));
-    printw("%c", char(board.get(getX(), getY())));
+    drawColored(getX(), getY());
     ::move(getX(), getY());
     refresh();
 }
@@ -113,9 +135,7 @@ void NCursesBoardView::Cursor::remove()
 void NCursesBoardView::Cursor::draw()
 {
     ::move(getX(), getY());
-    attron(PAIR_NUMBER(CURSOR_COLOR));
-    printw("%c", char(board.get(getX(), getY())));
-    attron(PAIR_NUMBER(BACKGROUND_COLOR));
+    drawColored(getX(), getY(), true);
     ::move(getX(), getY());
     refresh();
 }
@@ -175,5 +195,41 @@ void NCursesBoardView::Cursor::moveLeft()
         currentY--;
     }
 }
+
+void NCursesBoardView::Cursor::drawColored(size_t i, size_t j, bool underCursor) const
+{
+    POSITION_STATE current = board.get(i, j);
+
+    int color;
+    if (underCursor)
+    {
+        color = CURSOR_COLOR;
+    }
+    else
+    {
+        if (current == X_SIGN)
+            color = X_COLOR;
+        else if (current == O_SIGN)
+            color = O_COLOR;
+        else
+            color = BACKGROUND_COLOR;
+    }
+    attron(COLOR_PAIR(color));
+
+    if (char(board.get(i, j)) == '.')
+        printw(" ");
+    else
+        printw("%c", char(board.get(i, j)));
+
+    attroff(COLOR_PAIR(color));
+}
+
+void NCursesBoardView::Cursor::moveToPosition()
+{
+    ::move(currentX, currentY);
+    drawColored(currentX, currentY, true);
+    ::move(currentX, currentY);
+}
+
 
 

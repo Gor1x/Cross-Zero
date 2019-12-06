@@ -19,6 +19,8 @@ public:
     void showBoard() const;
     void printGameResult();
 
+    void init();
+
 private:
 
     class Cursor
@@ -35,6 +37,10 @@ private:
 
         void remove();
         void draw();
+
+        void drawColored(size_t i, size_t j, bool underCursor = false) const;
+
+        void moveToPosition();
 
     private:
 

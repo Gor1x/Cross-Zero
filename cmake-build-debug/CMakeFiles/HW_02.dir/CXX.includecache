@@ -16,21 +16,7 @@ Board.h
 ncurses.h
 -
 
-../include/StdioBoardView.h
-Board.h
-../include/Board.h
-
 /home/egor/CLionProjects/HW_02/src/NCursesBoardView.cpp
 NCursesBoardView.h
 /home/egor/CLionProjects/HW_02/src/NCursesBoardView.h
-
-/home/egor/CLionProjects/HW_02/src/main.cpp
-cstring
--
-Board.h
-/home/egor/CLionProjects/HW_02/src/Board.h
-StdioBoardView.h
-/home/egor/CLionProjects/HW_02/src/StdioBoardView.h
-NCursesBoardView.h
--
 
