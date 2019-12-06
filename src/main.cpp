@@ -20,7 +20,6 @@ int main(int argc, char ** argv)
 
     if (contains(argc, argv, "curses"))
     {
-
         NCursesBoardView boardView(board);
         initscr();
 
@@ -31,8 +30,11 @@ int main(int argc, char ** argv)
         keypad(stdscr, true);
 
         start_color();
-        init_pair(BACKGROUND_COLOR, COLOR_RED, COLOR_WHITE);
+        init_pair(BACKGROUND_COLOR, COLOR_WHITE, COLOR_BLACK);
         init_pair(CURSOR_COLOR, COLOR_BLACK, COLOR_RED);
+        init_pair(X_COLOR, COLOR_BLACK, COLOR_BLUE);
+        init_pair(O_COLOR, COLOR_BLACK, COLOR_RED);
+
 
         while (board.gameState() == IN_PROGRESS)
         {
@@ -45,7 +47,7 @@ int main(int argc, char ** argv)
         }
 
         boardView.printGameResult();
-        printw("\nPrint any key to exit the game");
+        printw("\nUse any key to exit the game");
         getch();
         endwin();
     }

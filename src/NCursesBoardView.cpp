@@ -14,7 +14,19 @@ void NCursesBoardView::showBoard() const
     {
         for (size_t j = 0; j < board.getWidth(); j++)
         {
+            POSITION_STATE current = board.get(i, j);
+
+            int color;
+            if (current == X_SIGN)
+                color = X_COLOR;
+            else if (current == O_SIGN)
+                color = O_COLOR;
+            else
+                color = BACKGROUND_COLOR;
+
+            attron(COLOR_PAIR(color));
             printw("%c", char(board.get(i, j)));
+            attroff(COLOR_PAIR(color));
         }
         printw("\n");
     }
@@ -28,9 +40,9 @@ void NCursesBoardView::doGameCycle()
     if (board.gameState() != IN_PROGRESS)
         return;
     move(0, 0);
-
     showBoard();
-    cursor.draw();
+    move(0, 0);
+
 
     char currentSign = (board.getTurnNumber() % 2)
                        ? 'O'
@@ -42,7 +54,6 @@ void NCursesBoardView::doGameCycle()
 
         if (key == 'x')
         {
-            refresh();
             board.move(-1, -1, currentSign);
             return;
         }
@@ -57,7 +68,6 @@ void NCursesBoardView::doGameCycle()
         else
         {
             cursor.move(key);
-            refresh();
         }
     }
 

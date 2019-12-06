@@ -7,6 +7,9 @@
 
 const size_t BACKGROUND_COLOR = 1;
 const size_t CURSOR_COLOR = 2;
+const size_t X_COLOR = 3;
+const size_t O_COLOR = 4;
+
 
 class NCursesBoardView
 {
