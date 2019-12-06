@@ -1,5 +1,5 @@
 #include <cstdio>
-#include "../include/Test.h"
+#include "Test.h"
 
 int Test::failedNum = 0;
 int Test::totalNum = 0;

@@ -44,6 +44,7 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/home/egor/CLionProjects/HW_02/include"/>
 					<Add directory="/usr/include/c++/5"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
 					<Add directory="/usr/include/c++/5/backward"/>
@@ -67,6 +68,7 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/home/egor/CLionProjects/HW_02/include"/>
 					<Add directory="/usr/include/c++/5"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
 					<Add directory="/usr/include/c++/5/backward"/>
@@ -90,6 +92,7 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/home/egor/CLionProjects/HW_02/include"/>
 					<Add directory="/usr/include/c++/5"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
 					<Add directory="/usr/include/c++/5/backward"/>
@@ -113,6 +116,7 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/home/egor/CLionProjects/HW_02/include"/>
 					<Add directory="/usr/include/c++/5"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
 					<Add directory="/usr/include/c++/5/backward"/>
@@ -137,11 +141,11 @@
 		<Unit filename="/home/egor/CLionProjects/HW_02/include/BoardTest.h">
 			<Option target="test"/>
 		</Unit>
-		<Unit filename="/home/egor/CLionProjects/HW_02/include/BoardView.h">
-			<Option target="test"/>
+		<Unit filename="/home/egor/CLionProjects/HW_02/include/NCursesBoardView.h">
 			<Option target="HW_02"/>
 		</Unit>
-		<Unit filename="/home/egor/CLionProjects/HW_02/include/NCursesBoardView.h">
+		<Unit filename="/home/egor/CLionProjects/HW_02/include/StdioBoardView.h">
+			<Option target="test"/>
 			<Option target="HW_02"/>
 		</Unit>
 		<Unit filename="/home/egor/CLionProjects/HW_02/include/Test.h">
@@ -154,11 +158,11 @@
 		<Unit filename="/home/egor/CLionProjects/HW_02/src/BoardTest.cpp">
 			<Option target="test"/>
 		</Unit>
-		<Unit filename="/home/egor/CLionProjects/HW_02/src/BoardView.cpp">
-			<Option target="test"/>
+		<Unit filename="/home/egor/CLionProjects/HW_02/src/NCursesBoardView.cpp">
 			<Option target="HW_02"/>
 		</Unit>
-		<Unit filename="/home/egor/CLionProjects/HW_02/src/NCursesBoardView.cpp">
+		<Unit filename="/home/egor/CLionProjects/HW_02/src/StdioBoardView.cpp">
+			<Option target="test"/>
 			<Option target="HW_02"/>
 		</Unit>
 		<Unit filename="/home/egor/CLionProjects/HW_02/src/Test.cpp">

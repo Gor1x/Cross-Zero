@@ -6,15 +6,17 @@
 
 #IncludeRegexTransform: 
 
-/home/egor/CLionProjects/HW_02/include/Board.h
+../include/Board.h
 cstddef
 -
 
-/home/egor/CLionProjects/HW_02/include/NCursesBoardView.h
+../include/NCursesBoardView.h
 Board.h
-/home/egor/CLionProjects/HW_02/include/Board.h
+../include/Board.h
+ncurses.h
+-
 
 /home/egor/CLionProjects/HW_02/src/NCursesBoardView.cpp
-../include/NCursesBoardView.h
-/home/egor/CLionProjects/HW_02/include/NCursesBoardView.h
+NCursesBoardView.h
+/home/egor/CLionProjects/HW_02/src/NCursesBoardView.h
 

@@ -193,36 +193,6 @@ src/BoardTest.cpp.s:
 	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/BoardTest.cpp.s
 .PHONY : src/BoardTest.cpp.s
 
-src/BoardView.o: src/BoardView.cpp.o
-
-.PHONY : src/BoardView.o
-
-# target to build an object file
-src/BoardView.cpp.o:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/BoardView.cpp.o
-	$(MAKE) -f CMakeFiles/HW_02.dir/build.make CMakeFiles/HW_02.dir/src/BoardView.cpp.o
-.PHONY : src/BoardView.cpp.o
-
-src/BoardView.i: src/BoardView.cpp.i
-
-.PHONY : src/BoardView.i
-
-# target to preprocess a source file
-src/BoardView.cpp.i:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/BoardView.cpp.i
-	$(MAKE) -f CMakeFiles/HW_02.dir/build.make CMakeFiles/HW_02.dir/src/BoardView.cpp.i
-.PHONY : src/BoardView.cpp.i
-
-src/BoardView.s: src/BoardView.cpp.s
-
-.PHONY : src/BoardView.s
-
-# target to generate assembly for a file
-src/BoardView.cpp.s:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/BoardView.cpp.s
-	$(MAKE) -f CMakeFiles/HW_02.dir/build.make CMakeFiles/HW_02.dir/src/BoardView.cpp.s
-.PHONY : src/BoardView.cpp.s
-
 src/NCursesBoardView.o: src/NCursesBoardView.cpp.o
 
 .PHONY : src/NCursesBoardView.o
@@ -249,6 +219,36 @@ src/NCursesBoardView.s: src/NCursesBoardView.cpp.s
 src/NCursesBoardView.cpp.s:
 	$(MAKE) -f CMakeFiles/HW_02.dir/build.make CMakeFiles/HW_02.dir/src/NCursesBoardView.cpp.s
 .PHONY : src/NCursesBoardView.cpp.s
+
+src/StdioBoardView.o: src/StdioBoardView.cpp.o
+
+.PHONY : src/StdioBoardView.o
+
+# target to build an object file
+src/StdioBoardView.cpp.o:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/StdioBoardView.cpp.o
+	$(MAKE) -f CMakeFiles/HW_02.dir/build.make CMakeFiles/HW_02.dir/src/StdioBoardView.cpp.o
+.PHONY : src/StdioBoardView.cpp.o
+
+src/StdioBoardView.i: src/StdioBoardView.cpp.i
+
+.PHONY : src/StdioBoardView.i
+
+# target to preprocess a source file
+src/StdioBoardView.cpp.i:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/StdioBoardView.cpp.i
+	$(MAKE) -f CMakeFiles/HW_02.dir/build.make CMakeFiles/HW_02.dir/src/StdioBoardView.cpp.i
+.PHONY : src/StdioBoardView.cpp.i
+
+src/StdioBoardView.s: src/StdioBoardView.cpp.s
+
+.PHONY : src/StdioBoardView.s
+
+# target to generate assembly for a file
+src/StdioBoardView.cpp.s:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/StdioBoardView.cpp.s
+	$(MAKE) -f CMakeFiles/HW_02.dir/build.make CMakeFiles/HW_02.dir/src/StdioBoardView.cpp.s
+.PHONY : src/StdioBoardView.cpp.s
 
 src/Test.o: src/Test.cpp.o
 
@@ -347,12 +347,12 @@ help:
 	@echo "... src/BoardTest.o"
 	@echo "... src/BoardTest.i"
 	@echo "... src/BoardTest.s"
-	@echo "... src/BoardView.o"
-	@echo "... src/BoardView.i"
-	@echo "... src/BoardView.s"
 	@echo "... src/NCursesBoardView.o"
 	@echo "... src/NCursesBoardView.i"
 	@echo "... src/NCursesBoardView.s"
+	@echo "... src/StdioBoardView.o"
+	@echo "... src/StdioBoardView.i"
+	@echo "... src/StdioBoardView.s"
 	@echo "... src/Test.o"
 	@echo "... src/Test.i"
 	@echo "... src/Test.s"

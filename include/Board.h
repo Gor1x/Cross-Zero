@@ -52,7 +52,7 @@ private:
     POSITION_STATE ** data;
 
     GAME_STATE currentState;
-    int turnNumber = 1;
+    size_t turnNumber = 1;
 
 };
 

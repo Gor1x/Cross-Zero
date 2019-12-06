@@ -1,13 +1,13 @@
-#ifndef HW_02_BOARDVIEW_H
-#define HW_02_BOARDVIEW_H
+#ifndef HW_02_STDIOBOARDVIEW_H
+#define HW_02_STDIOBOARDVIEW_H
 
 
 #include "Board.h"
 
-class BoardView
+class StdioBoardView
 {
 public:
-    explicit BoardView(Board &board_, bool isSilent);
+    explicit StdioBoardView(Board &board_, bool isSilent);
     void doGameCycle();
     void showBoard() const;
     void printGameResult();
@@ -21,4 +21,4 @@ private:
 };
 
 
-#endif //HW_02_BOARDVIEW_H
+#endif //HW_02_STDIOBOARDVIEW_H

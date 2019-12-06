@@ -1,5 +1,5 @@
 #include <algorithm>
-#include "../include/Board.h"
+#include "Board.h"
 
 
 Board::Board(size_t height_, size_t width_) : width(width_), height(height_), currentState(IN_PROGRESS) {
@@ -8,7 +8,7 @@ Board::Board(size_t height_, size_t width_) : width(width_), height(height_), cu
 
 void Board::move(size_t x, size_t y, char sign)
 {
-    if (x == -1 && y == -1)
+    if (int(x) == -1 && int(y) == -1)
     {
         interruptGame();
         return;

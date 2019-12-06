@@ -1,11 +1,11 @@
 #include <cstdio>
-#include "../include/BoardView.h"
+#include "StdioBoardView.h"
 
 
-BoardView::BoardView(Board &board_, bool isSilent) : board(board_), SILENCE(isSilent) {
+StdioBoardView::StdioBoardView(Board &board_, bool isSilent) : board(board_), SILENCE(isSilent) {
 }
 
-void BoardView::showBoard() const
+void StdioBoardView::showBoard() const
 {
     for (size_t i = 0; i < board.getHeight(); i++)
     {
@@ -17,7 +17,7 @@ void BoardView::showBoard() const
     }
 }
 
-void BoardView::doGameCycle()
+void StdioBoardView::doGameCycle()
 {
     if (board.gameState() != IN_PROGRESS)
         return;
@@ -35,12 +35,13 @@ void BoardView::doGameCycle()
     board.move(x, y, currentSign);
 }
 
-void BoardView::readCoordinates(size_t &x, size_t &y, char currentSign)
+void StdioBoardView::readCoordinates(size_t &x, size_t &y, char currentSign)
 {
     printf("%c move: ", currentSign);
+    fflush(stdout);
     scanf("%zu %zu", &x, &y);
 
-    if (x == -1 && y == -1)
+    if (int(x) == -1 && int(y) == -1)
     {
         return;
     }
@@ -54,7 +55,7 @@ void BoardView::readCoordinates(size_t &x, size_t &y, char currentSign)
 
 }
 
-void BoardView::printGameResult()
+void StdioBoardView::printGameResult()
 {
     showBoard();
     if (board.gameState() == X_WIN)

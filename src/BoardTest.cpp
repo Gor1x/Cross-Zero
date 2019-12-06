@@ -1,5 +1,5 @@
-#include "../include/BoardTest.h"
-#include "../include/Board.h"
+#include "BoardTest.h"
+#include "Board.h"
 
 void BoardTest::runAllTests()
 {

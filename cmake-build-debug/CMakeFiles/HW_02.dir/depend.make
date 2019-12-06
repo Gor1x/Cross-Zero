@@ -4,15 +4,16 @@
 CMakeFiles/HW_02.dir/src/Board.cpp.o: ../include/Board.h
 CMakeFiles/HW_02.dir/src/Board.cpp.o: ../src/Board.cpp
 
-CMakeFiles/HW_02.dir/src/BoardView.cpp.o: ../include/Board.h
-CMakeFiles/HW_02.dir/src/BoardView.cpp.o: ../include/BoardView.h
-CMakeFiles/HW_02.dir/src/BoardView.cpp.o: ../src/BoardView.cpp
-
 CMakeFiles/HW_02.dir/src/NCursesBoardView.cpp.o: ../include/Board.h
 CMakeFiles/HW_02.dir/src/NCursesBoardView.cpp.o: ../include/NCursesBoardView.h
 CMakeFiles/HW_02.dir/src/NCursesBoardView.cpp.o: ../src/NCursesBoardView.cpp
 
+CMakeFiles/HW_02.dir/src/StdioBoardView.cpp.o: ../include/Board.h
+CMakeFiles/HW_02.dir/src/StdioBoardView.cpp.o: ../include/StdioBoardView.h
+CMakeFiles/HW_02.dir/src/StdioBoardView.cpp.o: ../src/StdioBoardView.cpp
+
 CMakeFiles/HW_02.dir/src/main.cpp.o: ../include/Board.h
-CMakeFiles/HW_02.dir/src/main.cpp.o: ../include/BoardView.h
+CMakeFiles/HW_02.dir/src/main.cpp.o: ../include/NCursesBoardView.h
+CMakeFiles/HW_02.dir/src/main.cpp.o: ../include/StdioBoardView.h
 CMakeFiles/HW_02.dir/src/main.cpp.o: ../src/main.cpp
 

@@ -70,18 +70,18 @@ CMakeFiles/HW_02.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HW_02.dir/src/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/egor/CLionProjects/HW_02/src/main.cpp -o CMakeFiles/HW_02.dir/src/main.cpp.s
 
-CMakeFiles/HW_02.dir/src/BoardView.cpp.o: CMakeFiles/HW_02.dir/flags.make
-CMakeFiles/HW_02.dir/src/BoardView.cpp.o: ../src/BoardView.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/egor/CLionProjects/HW_02/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/HW_02.dir/src/BoardView.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HW_02.dir/src/BoardView.cpp.o -c /home/egor/CLionProjects/HW_02/src/BoardView.cpp
+CMakeFiles/HW_02.dir/src/StdioBoardView.cpp.o: CMakeFiles/HW_02.dir/flags.make
+CMakeFiles/HW_02.dir/src/StdioBoardView.cpp.o: ../src/StdioBoardView.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/egor/CLionProjects/HW_02/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/HW_02.dir/src/StdioBoardView.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HW_02.dir/src/StdioBoardView.cpp.o -c /home/egor/CLionProjects/HW_02/src/StdioBoardView.cpp
 
-CMakeFiles/HW_02.dir/src/BoardView.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HW_02.dir/src/BoardView.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/egor/CLionProjects/HW_02/src/BoardView.cpp > CMakeFiles/HW_02.dir/src/BoardView.cpp.i
+CMakeFiles/HW_02.dir/src/StdioBoardView.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HW_02.dir/src/StdioBoardView.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/egor/CLionProjects/HW_02/src/StdioBoardView.cpp > CMakeFiles/HW_02.dir/src/StdioBoardView.cpp.i
 
-CMakeFiles/HW_02.dir/src/BoardView.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HW_02.dir/src/BoardView.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/egor/CLionProjects/HW_02/src/BoardView.cpp -o CMakeFiles/HW_02.dir/src/BoardView.cpp.s
+CMakeFiles/HW_02.dir/src/StdioBoardView.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HW_02.dir/src/StdioBoardView.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/egor/CLionProjects/HW_02/src/StdioBoardView.cpp -o CMakeFiles/HW_02.dir/src/StdioBoardView.cpp.s
 
 CMakeFiles/HW_02.dir/src/Board.cpp.o: CMakeFiles/HW_02.dir/flags.make
 CMakeFiles/HW_02.dir/src/Board.cpp.o: ../src/Board.cpp
@@ -112,7 +112,7 @@ CMakeFiles/HW_02.dir/src/NCursesBoardView.cpp.s: cmake_force
 # Object files for target HW_02
 HW_02_OBJECTS = \
 "CMakeFiles/HW_02.dir/src/main.cpp.o" \
-"CMakeFiles/HW_02.dir/src/BoardView.cpp.o" \
+"CMakeFiles/HW_02.dir/src/StdioBoardView.cpp.o" \
 "CMakeFiles/HW_02.dir/src/Board.cpp.o" \
 "CMakeFiles/HW_02.dir/src/NCursesBoardView.cpp.o"
 
@@ -120,10 +120,12 @@ HW_02_OBJECTS = \
 HW_02_EXTERNAL_OBJECTS =
 
 HW_02: CMakeFiles/HW_02.dir/src/main.cpp.o
-HW_02: CMakeFiles/HW_02.dir/src/BoardView.cpp.o
+HW_02: CMakeFiles/HW_02.dir/src/StdioBoardView.cpp.o
 HW_02: CMakeFiles/HW_02.dir/src/Board.cpp.o
 HW_02: CMakeFiles/HW_02.dir/src/NCursesBoardView.cpp.o
 HW_02: CMakeFiles/HW_02.dir/build.make
+HW_02: /usr/lib/x86_64-linux-gnu/libncurses.so
+HW_02: /usr/lib/x86_64-linux-gnu/libform.so
 HW_02: CMakeFiles/HW_02.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/egor/CLionProjects/HW_02/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable HW_02"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/HW_02.dir/link.txt --verbose=$(VERBOSE)
