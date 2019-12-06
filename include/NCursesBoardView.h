@@ -30,6 +30,8 @@ private:
 
         Cursor(size_t height_, size_t width_, Board &board_);
 
+        virtual ~Cursor();
+
         size_t getX() const;
         size_t getY() const;
 
@@ -41,6 +43,8 @@ private:
         void drawColored(size_t i, size_t j, bool underCursor = false) const;
 
         void moveToPosition();
+
+        WINDOW *getWindow() const;
 
     private:
 
@@ -54,7 +58,10 @@ private:
         size_t width;
         size_t height;
         Board& board;
+
+        WINDOW *window;
     };
+
 
     Board& board;
     Cursor cursor;

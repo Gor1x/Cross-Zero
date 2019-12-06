@@ -97,14 +97,12 @@ void NCursesBoardView::init()
 
     auto local_win = newwin(board.getHeight() + 2, board.getWidth() + 2, 0, 0);
     box(local_win, 0, 0);
-    wrefresh(local_win);/* 0, 0 gives default characters
-     * for the vertical and horizontal
-     * lines */
-   // wborder(local_win, '|', '|', '-', '-', '+', '+', '+', '+');
+    wrefresh(local_win);
     wmove(local_win, 0, 0);
-    //wprintw(local_win, "kek");
-    wrefresh(local_win); /* Show that box */
+    wrefresh(local_win);
     delwin(local_win);
+
+
 }
 
 NCursesBoardView::Cursor::Cursor(size_t height_, size_t width_, Board &board_) : width(width_),
@@ -112,6 +110,11 @@ NCursesBoardView::Cursor::Cursor(size_t height_, size_t width_, Board &board_) :
                                                                                     board(board_)
 {
     currentX = currentY = 0;
+
+    window = newwin(board.getHeight(), board.getWidth(), 1, 1);
+    box(window, ' ', ' ');
+    wborder(window, ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ');
+    wrefresh(window);
 }
 
 size_t NCursesBoardView::Cursor::getX() const
@@ -231,5 +234,15 @@ void NCursesBoardView::Cursor::moveToPosition()
     ::move(currentX, currentY);
 }
 
+WINDOW *NCursesBoardView::Cursor::getWindow() const
+{
+    return window;
+}
 
+NCursesBoardView::Cursor::~Cursor()
+{
+    delwin(window);
+}
+
+s
 
