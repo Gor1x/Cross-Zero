@@ -6,7 +6,7 @@ Board::Board(size_t height_, size_t width_) : width(width_), height(height_), cu
     initData();
 }
 
-void Board::move(size_t x, size_t y, char sign)
+void Board::makeMove(size_t x, size_t y, char sign)
 {
     if (int(x) == -1 && int(y) == -1)
     {

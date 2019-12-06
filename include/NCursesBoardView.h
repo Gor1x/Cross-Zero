@@ -32,17 +32,17 @@ private:
 
         virtual ~Cursor();
 
+        void initCursorWindow();
+
         size_t getX() const;
         size_t getY() const;
 
-        void move(int command);
+        void moveCursor(int command);
 
         void remove();
         void draw();
 
         void drawColored(size_t i, size_t j, bool underCursor = false) const;
-
-        void moveToPosition();
 
         WINDOW *getWindow() const;
 
@@ -64,7 +64,7 @@ private:
 
 
     Board& board;
-    Cursor cursor;
+    mutable Cursor cursor;
 };
 
 

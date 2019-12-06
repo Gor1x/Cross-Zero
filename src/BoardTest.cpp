@@ -37,11 +37,11 @@ void BoardTest::runAllTests()
 void BoardTest::testIsWinO()
 {
     Board board(5, 5);
-    board.move(0, 0, 'O');
-    board.move(0, 1, 'O');
-    board.move(0, 2, 'O');
-    board.move(0, 3, 'O');
-    board.move(0, 4, 'O');
+    board.makeMove(0, 0, 'O');
+    board.makeMove(0, 1, 'O');
+    board.makeMove(0, 2, 'O');
+    board.makeMove(0, 3, 'O');
+    board.makeMove(0, 4, 'O');
     DO_CHECK(board.gameState() == O_WIN);
 }
 
@@ -49,7 +49,7 @@ void BoardTest::testIsWinX()
 {
     Board board(5,5);
     for (size_t i = 0; i < 5; i++)
-        board.move(i, i, 'X');
+        board.makeMove(i, i, 'X');
     DO_CHECK(board.gameState() == X_WIN);
 }
 
@@ -61,7 +61,7 @@ void BoardTest::testDraw()
     int turn = 0;
     for (size_t i = 0; i < n; ++i)
         for (size_t j = 0; j < n; ++j)
-            board.move(i, j, (turn++) % 2 ? 'O' : 'X');
+            board.makeMove(i, j, (turn++) % 2 ? 'O' : 'X');
 
     DO_CHECK(board.gameState() == DRAW);
 }
@@ -69,7 +69,7 @@ void BoardTest::testDraw()
 void BoardTest::testInterrupting()
 {
     Board board(10, 10);
-    board.move(-1, -1, 'X');
+    board.makeMove(-1, -1, 'X');
     DO_CHECK(board.gameState() == INTERRUPTED);
 }
 
@@ -78,7 +78,7 @@ void BoardTest::testInProgress()
     Board board(4, 5);
     for (size_t i = 0; i < 4; i++)
         for (size_t j = 0; j < 4; j++)
-            board.move(i, j, 'X');
+            board.makeMove(i, j, 'X');
     DO_CHECK(board.gameState() == IN_PROGRESS);
 }
 
@@ -87,7 +87,7 @@ void BoardTest::getTurnNumber1()
     Board board(10, 10);
     for (size_t i = 0; i < 4; i++)
     {
-        board.move(i, i, 'X');
+        board.makeMove(i, i, 'X');
     }
 
     DO_CHECK(board.getTurnNumber() == 5);
@@ -98,7 +98,7 @@ void BoardTest::getTurnNumber2()
     Board board(10, 10);
     for (size_t i = 2; i < 8; i += 2)
     {
-        board.move(i, i, 'X');
+        board.makeMove(i, i, 'X');
     }
 
     DO_CHECK(board.getTurnNumber() == 4);
@@ -125,7 +125,7 @@ void BoardTest::moving2()
 void BoardTest::moving3()
 {
     Board board(10, 10);
-    board.move(0, 0, 'X');
+    board.makeMove(0, 0, 'X');
     DO_CHECK(!board.canMove(0, 0));
 }
 
@@ -144,14 +144,14 @@ void BoardTest::getting1()
 void BoardTest::getting2()
 {
     Board board(10, 10);
-    board.move(0, 0, 'X');
+    board.makeMove(0, 0, 'X');
     DO_CHECK(board.get(0, 0) == X_SIGN);
 }
 
 void BoardTest::getting3()
 {
     Board board(10, 10);
-    board.move(5, 5, 'O');
+    board.makeMove(5, 5, 'O');
     DO_CHECK(board.get(5, 5) == O_SIGN);
 }
 

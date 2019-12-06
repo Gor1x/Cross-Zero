@@ -32,7 +32,7 @@ void StdioBoardView::doGameCycle()
     size_t x, y;
     readCoordinates(x, y, currentSign);
 
-    board.move(x, y, currentSign);
+    board.makeMove(x, y, currentSign);
 }
 
 void StdioBoardView::readCoordinates(size_t &x, size_t &y, char currentSign)

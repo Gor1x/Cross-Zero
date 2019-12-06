@@ -24,7 +24,7 @@ public:
 
     Board(size_t height_, size_t width_);
 
-    void move(size_t x, size_t y, char sign);
+    void makeMove(size_t x, size_t y, char sign);
 
     bool canMove(size_t x, size_t y) const;
 

@@ -16,13 +16,13 @@ static bool contains(size_t argc, char ** argv, const char *needle)
 
 int main(int argc, char ** argv)
 {
-    Board board(10, 10);
+    Board board(4, 4);
 
     if (contains(argc, argv, "curses"))
     {
         NCursesBoardView boardView(board);
 
-        while(true);
+
         while (board.gameState() == IN_PROGRESS)
         {
             boardView.doGameCycle();
@@ -35,10 +35,10 @@ int main(int argc, char ** argv)
         else
         {
             boardView.printGameResult();
-            printw("\nUse any key to exit the game");
             getch();
             endwin();
         }
+
     }
     else
     {

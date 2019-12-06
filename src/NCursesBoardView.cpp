@@ -1,26 +1,31 @@
 #include "NCursesBoardView.h"
 
+
+#define debug(x) mvprintw(10, 10, x); printw("\n");
+
 NCursesBoardView::NCursesBoardView(Board &board_) : board(board_),
                                                     cursor(board.getHeight(),
                                                             board.getWidth(),
                                                                 board)
 {
     init();
-
+    cursor.initCursorWindow();
+    wmove(cursor.getWindow(), 0, 0);
 }
 
 void NCursesBoardView::showBoard() const
 {
-    move(0, 0);
+
+    wmove(cursor.getWindow(), 0, 0);
     for (size_t i = 0; i < board.getHeight(); i++)
     {
         for (size_t j = 0; j < board.getWidth(); j++)
         {
             cursor.drawColored(i, j, false);
         }
-        printw("\n");
     }
-    refresh();
+    wrefresh(cursor.getWindow());
+    cursor.draw();
 }
 
 
@@ -29,16 +34,16 @@ void NCursesBoardView::doGameCycle()
 {
     if (board.gameState() != IN_PROGRESS)
         return;
-    move(0, 0);
+
+    wmove(cursor.getWindow(), 0, 0 );
+
     showBoard();
-
-    cursor.moveToPosition();
-
 
 
     char currentSign = (board.getTurnNumber() % 2)
                        ? 'O'
                        : 'X';
+
 
     while (true)
     {
@@ -46,41 +51,42 @@ void NCursesBoardView::doGameCycle()
 
         if (key == 'x')
         {
-            board.move(-1, -1, currentSign);
-            return;
+            board.makeMove(-1, -1, currentSign);
+            break;
         }
         else if (key == ' ')
         {
             if (board.canMove(cursor.getX(), cursor.getY()))
             {
-                board.move(cursor.getX(), cursor.getY(), currentSign);
-                return;
+                board.makeMove(cursor.getX(), cursor.getY(), currentSign);
+                break;
             }
         }
         else
         {
-            cursor.move(key);
+            cursor.moveCursor(key);
         }
     }
-
+    cursor.draw();
 }
+
 
 void NCursesBoardView::printGameResult()
 {
     showBoard();
     if (board.gameState() == X_WIN)
-        printw("X wins!");
+        wprintw(cursor.getWindow(), "X wins!");
     else if (board.gameState() == O_WIN)
-        printw("O wins!");
+        wprintw(cursor.getWindow(), "O wins!");
     else
-        printw("Draw.");
+        wprintw(cursor.getWindow(), "Draw.");
+
+    wprintw(cursor.getWindow(), "\nUse any key to exit the game");
 }
 
 void NCursesBoardView::init()
 {
     initscr();
-
-    move(0, 0);
 
     raw();
     noecho();
@@ -91,18 +97,7 @@ void NCursesBoardView::init()
     init_pair(CURSOR_COLOR, COLOR_WHITE, COLOR_BLACK);
     init_pair(X_COLOR, COLOR_BLUE, COLOR_BLACK);
     init_pair(O_COLOR, COLOR_RED, COLOR_BLACK);
-
-
     attron(PAIR_NUMBER(BACKGROUND_COLOR));
-
-    auto local_win = newwin(board.getHeight() + 2, board.getWidth() + 2, 0, 0);
-    box(local_win, 0, 0);
-    wrefresh(local_win);
-    wmove(local_win, 0, 0);
-    wrefresh(local_win);
-    delwin(local_win);
-
-
 }
 
 NCursesBoardView::Cursor::Cursor(size_t height_, size_t width_, Board &board_) : width(width_),
@@ -110,11 +105,6 @@ NCursesBoardView::Cursor::Cursor(size_t height_, size_t width_, Board &board_) :
                                                                                     board(board_)
 {
     currentX = currentY = 0;
-
-    window = newwin(board.getHeight(), board.getWidth(), 1, 1);
-    box(window, ' ', ' ');
-    wborder(window, ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ');
-    wrefresh(window);
 }
 
 size_t NCursesBoardView::Cursor::getX() const
@@ -129,21 +119,23 @@ size_t NCursesBoardView::Cursor::getY() const
 
 void NCursesBoardView::Cursor::remove()
 {
-    ::move(getX(), getY());
+    wmove(window, getX(), getY());
     drawColored(getX(), getY());
-    ::move(getX(), getY());
-    refresh();
+    wmove(window, getX(), getY());
+    wrefresh(window);
 }
 
 void NCursesBoardView::Cursor::draw()
 {
-    ::move(getX(), getY());
+    wmove(window, getX(), getY());
     drawColored(getX(), getY(), true);
-    ::move(getX(), getY());
-    refresh();
+    wmove(window, getX(), getY());
+    wrefresh(window);
 }
 
-void NCursesBoardView::Cursor::move(int command)
+
+
+void NCursesBoardView::Cursor::moveCursor(int command)
 {
     remove();
     switch (command)
@@ -164,6 +156,7 @@ void NCursesBoardView::Cursor::move(int command)
             moveDown();
             break;
     }
+
     draw();
 }
 
@@ -202,7 +195,6 @@ void NCursesBoardView::Cursor::moveLeft()
 void NCursesBoardView::Cursor::drawColored(size_t i, size_t j, bool underCursor) const
 {
     POSITION_STATE current = board.get(i, j);
-
     int color;
     if (underCursor)
     {
@@ -217,21 +209,16 @@ void NCursesBoardView::Cursor::drawColored(size_t i, size_t j, bool underCursor)
         else
             color = BACKGROUND_COLOR;
     }
-    attron(COLOR_PAIR(color));
+
+
+    wattron(window, COLOR_PAIR(color));
 
     if (char(board.get(i, j)) == '.')
-        printw(" ");
+        wprintw(window, " ");
     else
-        printw("%c", char(board.get(i, j)));
+        wprintw(window, "%c", char(board.get(i, j)));
 
-    attroff(COLOR_PAIR(color));
-}
-
-void NCursesBoardView::Cursor::moveToPosition()
-{
-    ::move(currentX, currentY);
-    drawColored(currentX, currentY, true);
-    ::move(currentX, currentY);
+    wattroff(window, COLOR_PAIR(color));
 }
 
 WINDOW *NCursesBoardView::Cursor::getWindow() const
@@ -244,5 +231,11 @@ NCursesBoardView::Cursor::~Cursor()
     delwin(window);
 }
 
-s
+void NCursesBoardView::Cursor::initCursorWindow()
+{
+    move(1, 1);
+    window = newwin(board.getHeight(), board.getWidth(), 1, 1);
+    wrefresh(window);
+}
+
 
