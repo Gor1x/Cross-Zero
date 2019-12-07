@@ -3,7 +3,7 @@
 #include "StdioBoardView.h"
 #include <NCursesBoardView.h>
 
-static bool contains(size_t argc, char ** argv, const char *needle)
+static bool isContain(size_t argc, char ** argv, const char *needle)
 {
     for (size_t i = 0; i < argc; i++)
     {
@@ -13,46 +13,55 @@ static bool contains(size_t argc, char ** argv, const char *needle)
     return false;
 }
 
-
-int main(int argc, char ** argv)
+void runNCursesMode()
 {
-    Board board(4, 4);
+    Board board(10, 10);
+    NCursesBoardView boardView(board);
 
-    if (contains(argc, argv, "curses"))
+    while (board.gameState() == IN_PROGRESS)
     {
-        NCursesBoardView boardView(board);
+        boardView.doGameCycle();
+    }
 
-
-        while (board.gameState() == IN_PROGRESS)
-        {
-            boardView.doGameCycle();
-        }
-
-        if (board.gameState() == INTERRUPTED)
-        {
-            endwin();
-        }
-        else
-        {
-            boardView.printGameResult();
-            getch();
-            endwin();
-        }
-
+    if (board.gameState() == INTERRUPTED)
+    {
+        endwin();
     }
     else
     {
-        bool silence = contains(argc, argv, "silent");
+        boardView.printGameResult();
+        getch();
+        boardView.showEndAnimation();
+        endwin();
+    }
+}
 
-        StdioBoardView boardView(board, silence);
+void runStdioMode(bool silence)
+{
+    Board board(4, 4);
 
-        while (board.gameState() == IN_PROGRESS)
-        {
-            boardView.doGameCycle();
-        }
+    StdioBoardView boardView(board, silence);
 
-        if (board.gameState() != INTERRUPTED)
-            boardView.printGameResult();
+    while (board.gameState() == IN_PROGRESS)
+    {
+        boardView.doGameCycle();
+    }
+
+    if (board.gameState() != INTERRUPTED)
+        boardView.printGameResult();
+}
+
+int main(int argc, char ** argv)
+{
+
+
+    if (isContain(argc, argv, "curses"))
+    {
+        runNCursesMode();
+    }
+    else
+    {
+        runStdioMode(isContain(argc, argv, "silent"));
     }
 
 
