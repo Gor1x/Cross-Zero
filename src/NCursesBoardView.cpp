@@ -149,7 +149,7 @@ void NCursesBoardView::showEndAnimation()
 
     const size_t diagonals = board.getHeight() + board.getWidth() - 1;
 
-    for (size_t i = 0; i < diagonals / 4; i++)
+    for (size_t i = 0; i < diagonals / 4 + 2; i++)
     {
         const size_t diags[4] = {
                 i,
@@ -168,9 +168,9 @@ void NCursesBoardView::showEndAnimation()
             }
         }
 
+        sleep(1);
         wmove(cursor.getWindow(), 0, 0);
         wrefresh(cursor.getWindow());
-        sleep(1);
     }
     wattroff(cursor.getWindow(), COLOR_PAIR(END_COLOR));
 }
