@@ -6,7 +6,7 @@ project(HW_02)
 set(flags "-lncurses")
 set(superflags "-Werror -Wall -Wextra -pedantic -lncurses")
 
-SET(CMAKE_CXX_FLAGS  "${CMAKE_C_FLAGS} ${flags}")
+SET(CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS} ${superflags}")
 set(CMAKE_CXX_STANDARD 14)
 
 include_directories(include)
