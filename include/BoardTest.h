@@ -35,6 +35,15 @@ private:
     static void movingGoodMove();
 
 
+    static void gameWinHorizontal();
+
+    static void gameWinMainDiagonal();
+
+    static void gameWinSideDiagonal();
+
+    static void gameWinVertical();
+
+
     static void gettingEmpty();
 
     static void gettingSignX();

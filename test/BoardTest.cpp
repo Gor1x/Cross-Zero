@@ -22,6 +22,10 @@ void BoardTest::runAllTests()
     gettingSignX();
     gettingSignO();
 
+    gameWinHorizontal();
+    gameWinMainDiagonal();
+    gameWinSideDiagonal();
+    gameWinVertical();
 
     width1();
     width2();
@@ -189,6 +193,54 @@ void BoardTest::height3()
 {
     Board board(32, 14);
     DO_CHECK(board.getHeight() == 32);
+}
+
+void BoardTest::gameWinHorizontal()
+{
+    Board board(7, 7);
+
+    for (size_t i = 1; i < 6; i++)
+    {
+        board.makeMove(2, i, 'X');
+    }
+
+    DO_CHECK(board.gameState() == X_WIN);
+}
+
+void BoardTest::gameWinMainDiagonal()
+{
+    Board board(7, 7);
+
+    for (size_t i = 1; i < 6; i++)
+    {
+        board.makeMove(i, i, 'X');
+    }
+
+    DO_CHECK(board.gameState() == X_WIN);
+}
+
+void BoardTest::gameWinSideDiagonal()
+{
+    Board board(7, 7);
+
+    for (size_t i = 0; i < 5; i++)
+    {
+        board.makeMove(5 - i, i, 'X');
+    }
+
+    DO_CHECK(board.gameState() == X_WIN);
+}
+
+void BoardTest::gameWinVertical()
+{
+    Board board(7, 7);
+
+    for (size_t i = 1; i < 6; i++)
+    {
+        board.makeMove(i, 2, 'X');
+    }
+
+    DO_CHECK(board.gameState() == X_WIN);
 }
 
 

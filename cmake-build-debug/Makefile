@@ -166,33 +166,6 @@ src/Board.cpp.s:
 	$(MAKE) -f CMakeFiles/HW_02.dir/build.make CMakeFiles/HW_02.dir/src/Board.cpp.s
 .PHONY : src/Board.cpp.s
 
-src/BoardTest.o: src/BoardTest.cpp.o
-
-.PHONY : src/BoardTest.o
-
-# target to build an object file
-src/BoardTest.cpp.o:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/BoardTest.cpp.o
-.PHONY : src/BoardTest.cpp.o
-
-src/BoardTest.i: src/BoardTest.cpp.i
-
-.PHONY : src/BoardTest.i
-
-# target to preprocess a source file
-src/BoardTest.cpp.i:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/BoardTest.cpp.i
-.PHONY : src/BoardTest.cpp.i
-
-src/BoardTest.s: src/BoardTest.cpp.s
-
-.PHONY : src/BoardTest.s
-
-# target to generate assembly for a file
-src/BoardTest.cpp.s:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/BoardTest.cpp.s
-.PHONY : src/BoardTest.cpp.s
-
 src/NCursesBoardView.o: src/NCursesBoardView.cpp.o
 
 .PHONY : src/NCursesBoardView.o
@@ -250,33 +223,6 @@ src/StdioBoardView.cpp.s:
 	$(MAKE) -f CMakeFiles/HW_02.dir/build.make CMakeFiles/HW_02.dir/src/StdioBoardView.cpp.s
 .PHONY : src/StdioBoardView.cpp.s
 
-src/Test.o: src/Test.cpp.o
-
-.PHONY : src/Test.o
-
-# target to build an object file
-src/Test.cpp.o:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/Test.cpp.o
-.PHONY : src/Test.cpp.o
-
-src/Test.i: src/Test.cpp.i
-
-.PHONY : src/Test.i
-
-# target to preprocess a source file
-src/Test.cpp.i:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/Test.cpp.i
-.PHONY : src/Test.cpp.i
-
-src/Test.s: src/Test.cpp.s
-
-.PHONY : src/Test.s
-
-# target to generate assembly for a file
-src/Test.cpp.s:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/Test.cpp.s
-.PHONY : src/Test.cpp.s
-
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -304,32 +250,86 @@ src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/HW_02.dir/build.make CMakeFiles/HW_02.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
-src/test.o: src/test.cpp.o
+test/BoardTest.o: test/BoardTest.cpp.o
 
-.PHONY : src/test.o
+.PHONY : test/BoardTest.o
 
 # target to build an object file
-src/test.cpp.o:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/test.cpp.o
-.PHONY : src/test.cpp.o
+test/BoardTest.cpp.o:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test/BoardTest.cpp.o
+.PHONY : test/BoardTest.cpp.o
 
-src/test.i: src/test.cpp.i
+test/BoardTest.i: test/BoardTest.cpp.i
 
-.PHONY : src/test.i
+.PHONY : test/BoardTest.i
 
 # target to preprocess a source file
-src/test.cpp.i:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/test.cpp.i
-.PHONY : src/test.cpp.i
+test/BoardTest.cpp.i:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test/BoardTest.cpp.i
+.PHONY : test/BoardTest.cpp.i
 
-src/test.s: src/test.cpp.s
+test/BoardTest.s: test/BoardTest.cpp.s
 
-.PHONY : src/test.s
+.PHONY : test/BoardTest.s
 
 # target to generate assembly for a file
-src/test.cpp.s:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/test.cpp.s
-.PHONY : src/test.cpp.s
+test/BoardTest.cpp.s:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test/BoardTest.cpp.s
+.PHONY : test/BoardTest.cpp.s
+
+test/Test.o: test/Test.cpp.o
+
+.PHONY : test/Test.o
+
+# target to build an object file
+test/Test.cpp.o:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test/Test.cpp.o
+.PHONY : test/Test.cpp.o
+
+test/Test.i: test/Test.cpp.i
+
+.PHONY : test/Test.i
+
+# target to preprocess a source file
+test/Test.cpp.i:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test/Test.cpp.i
+.PHONY : test/Test.cpp.i
+
+test/Test.s: test/Test.cpp.s
+
+.PHONY : test/Test.s
+
+# target to generate assembly for a file
+test/Test.cpp.s:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test/Test.cpp.s
+.PHONY : test/Test.cpp.s
+
+test/test.o: test/test.cpp.o
+
+.PHONY : test/test.o
+
+# target to build an object file
+test/test.cpp.o:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test/test.cpp.o
+.PHONY : test/test.cpp.o
+
+test/test.i: test/test.cpp.i
+
+.PHONY : test/test.i
+
+# target to preprocess a source file
+test/test.cpp.i:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test/test.cpp.i
+.PHONY : test/test.cpp.i
+
+test/test.s: test/test.cpp.s
+
+.PHONY : test/test.s
+
+# target to generate assembly for a file
+test/test.cpp.s:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test/test.cpp.s
+.PHONY : test/test.cpp.s
 
 # Help Target
 help:
@@ -344,24 +344,24 @@ help:
 	@echo "... src/Board.o"
 	@echo "... src/Board.i"
 	@echo "... src/Board.s"
-	@echo "... src/BoardTest.o"
-	@echo "... src/BoardTest.i"
-	@echo "... src/BoardTest.s"
 	@echo "... src/NCursesBoardView.o"
 	@echo "... src/NCursesBoardView.i"
 	@echo "... src/NCursesBoardView.s"
 	@echo "... src/StdioBoardView.o"
 	@echo "... src/StdioBoardView.i"
 	@echo "... src/StdioBoardView.s"
-	@echo "... src/Test.o"
-	@echo "... src/Test.i"
-	@echo "... src/Test.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
-	@echo "... src/test.o"
-	@echo "... src/test.i"
-	@echo "... src/test.s"
+	@echo "... test/BoardTest.o"
+	@echo "... test/BoardTest.i"
+	@echo "... test/BoardTest.s"
+	@echo "... test/Test.o"
+	@echo "... test/Test.i"
+	@echo "... test/Test.s"
+	@echo "... test/test.o"
+	@echo "... test/test.i"
+	@echo "... test/test.s"
 .PHONY : help
 
 

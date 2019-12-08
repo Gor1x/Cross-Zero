@@ -155,9 +155,6 @@
 			<Option target="test"/>
 			<Option target="HW_02"/>
 		</Unit>
-		<Unit filename="/home/egor/CLionProjects/HW_02/src/BoardTest.cpp">
-			<Option target="test"/>
-		</Unit>
 		<Unit filename="/home/egor/CLionProjects/HW_02/src/NCursesBoardView.cpp">
 			<Option target="HW_02"/>
 		</Unit>
@@ -165,13 +162,16 @@
 			<Option target="test"/>
 			<Option target="HW_02"/>
 		</Unit>
-		<Unit filename="/home/egor/CLionProjects/HW_02/src/Test.cpp">
-			<Option target="test"/>
-		</Unit>
 		<Unit filename="/home/egor/CLionProjects/HW_02/src/main.cpp">
 			<Option target="HW_02"/>
 		</Unit>
-		<Unit filename="/home/egor/CLionProjects/HW_02/src/test.cpp">
+		<Unit filename="/home/egor/CLionProjects/HW_02/test/BoardTest.cpp">
+			<Option target="test"/>
+		</Unit>
+		<Unit filename="/home/egor/CLionProjects/HW_02/test/Test.cpp">
+			<Option target="test"/>
+		</Unit>
+		<Unit filename="/home/egor/CLionProjects/HW_02/test/test.cpp">
 			<Option target="test"/>
 		</Unit>
 		<Unit filename="/home/egor/CLionProjects/HW_02/CMakeLists.txt">
