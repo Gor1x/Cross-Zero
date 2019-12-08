@@ -27,13 +27,13 @@ void BoardTest::runAllTests()
     gameWinSideDiagonal();
     gameWinVertical();
 
-    width1();
-    width2();
-    width3();
+    widthCorrect1();
+    widthCorrect2();
+    widthCorrect3();
 
-    height1();
-    height2();
-    height3();
+    heightCorrect1();
+    heightCorrect2();
+    heightCorrect3();
 
     winLastTurn();
 
@@ -161,37 +161,37 @@ void BoardTest::gettingSignO()
     DO_CHECK(board.get(5, 5) == O_SIGN);
 }
 
-void BoardTest::width1()
+void BoardTest::widthCorrect1()
 {
     Board board(7, 3);
     DO_CHECK(board.getWidth() == 3);
 }
 
-void BoardTest::width2()
+void BoardTest::widthCorrect2()
 {
     Board board(5, 18);
     DO_CHECK(board.getWidth() == 18);
 }
 
-void BoardTest::width3()
+void BoardTest::widthCorrect3()
 {
     Board board(32, 14);
     DO_CHECK(board.getWidth() == 14);
 }
 
-void BoardTest::height1()
+void BoardTest::heightCorrect1()
 {
     Board board(7, 3);
     DO_CHECK(board.getHeight() == 7);
 }
 
-void BoardTest::height2()
+void BoardTest::heightCorrect2()
 {
     Board board(5, 18);
     DO_CHECK(board.getHeight() == 5);
 }
 
-void BoardTest::height3()
+void BoardTest::heightCorrect3()
 {
     Board board(32, 14);
     DO_CHECK(board.getHeight() == 32);

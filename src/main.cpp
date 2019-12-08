@@ -38,7 +38,7 @@ void runNCursesMode()
 
 void runStdioMode(bool silence)
 {
-    Board board(4, 4);
+    Board board(10, 10);
 
     StdioBoardView boardView(board, silence);
 

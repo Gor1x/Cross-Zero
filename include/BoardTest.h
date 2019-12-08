@@ -51,13 +51,17 @@ private:
     static void gettingSignO();
 
 
-    static void width1();
-    static void width2();
-    static void width3();
+    static void widthCorrect1();
 
-    static void height1();
-    static void height2();
-    static void height3();
+    static void widthCorrect2();
+
+    static void widthCorrect3();
+
+    static void heightCorrect1();
+
+    static void heightCorrect2();
+
+    static void heightCorrect3();
 
     static void winLastTurn();
 
