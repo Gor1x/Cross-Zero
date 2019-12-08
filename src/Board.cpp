@@ -93,14 +93,10 @@ void Board::checkIfStateChanged(size_t x, size_t y)
 
         if (currentDirectionAnswer >= 5)
         {
-            if (state == X_SIGN)
-            {
-                currentState = X_WIN;
-            }
-            else //state == O_WIN
-            {
+            state == X_SIGN ?
+                    currentState = X_WIN :
                 currentState = O_WIN;
-            }
+
             return;
         }
     }

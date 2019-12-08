@@ -10,25 +10,36 @@ public:
     void runAllTests() override;
 
 private:
-    static void testIsWinX();
-    static void testIsWinO();
-    static void testDraw();
-    static void testInterrupting();
-    static void testInProgress();
+    static void testGameWinX();
 
-    static void getTurnNumber1();
-    static void getTurnNumber2();
-    static void getTurnNumber3();
+    static void testGameWinO();
 
-    static void moving1();
-    static void moving2();
-    static void moving3();
-    static void moving4();
+    static void testGameDraw();
+
+    static void testGameInterrupted();
+
+    static void testGameInProgress();
+
+    static void getTurnNumberAfterOperations1();
+
+    static void getTurnNumberAfterOperations2();
+
+    static void getTurnNumberFirstTurn();
+
+    static void movingNegativeCoordinates();
+
+    static void movingBigCoordinates();
+
+    static void movingOnNonEmptyField();
+
+    static void movingGoodMove();
 
 
-    static void getting1();
-    static void getting2();
-    static void getting3();
+    static void gettingEmpty();
+
+    static void gettingSignX();
+
+    static void gettingSignO();
 
 
     static void width1();

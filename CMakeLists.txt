@@ -14,8 +14,8 @@ include_directories(/usr/include/)
 
 
 add_executable(test src/StdioBoardView.cpp include/StdioBoardView.h
-        src/Board.cpp include/Board.h src/Test.cpp include/Test.h src/BoardTest.cpp
-        include/BoardTest.h src/test.cpp)
+        src/Board.cpp include/Board.h test/Test.cpp include/Test.h test/BoardTest.cpp
+        include/BoardTest.h test/test.cpp)
 
 add_executable(HW_02 src/main.cpp
         src/StdioBoardView.cpp

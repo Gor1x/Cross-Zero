@@ -3,8 +3,8 @@
 
 NCursesBoardView::NCursesBoardView(Board &board_) : board(board_),
                                                     cursor(board.getHeight(),
-                                                            board.getWidth(),
-                                                                board)
+                                                           board.getWidth(),
+                                                           board)
 {
     init();
     cursor.initCursorWindow();

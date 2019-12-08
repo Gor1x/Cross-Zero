@@ -3,24 +3,24 @@
 
 void BoardTest::runAllTests()
 {
-    testIsWinX();
-    testIsWinO();
-    testDraw();
-    testInterrupting();
-    testInProgress();
+    testGameWinX();
+    testGameWinO();
+    testGameDraw();
+    testGameInterrupted();
+    testGameInProgress();
 
-    getTurnNumber1();
-    getTurnNumber2();
-    getTurnNumber3();
+    getTurnNumberAfterOperations1();
+    getTurnNumberAfterOperations2();
+    getTurnNumberFirstTurn();
 
-    moving1();
-    moving2();
-    moving3();
-    moving4();
+    movingNegativeCoordinates();
+    movingBigCoordinates();
+    movingOnNonEmptyField();
+    movingGoodMove();
 
-    getting1();
-    getting2();
-    getting3();
+    gettingEmpty();
+    gettingSignX();
+    gettingSignO();
 
 
     width1();
@@ -34,7 +34,7 @@ void BoardTest::runAllTests()
     showFinalResult();
 }
 
-void BoardTest::testIsWinO()
+void BoardTest::testGameWinO()
 {
     Board board(5, 5);
     board.makeMove(0, 0, 'O');
@@ -45,7 +45,7 @@ void BoardTest::testIsWinO()
     DO_CHECK(board.gameState() == O_WIN);
 }
 
-void BoardTest::testIsWinX()
+void BoardTest::testGameWinX()
 {
     Board board(5,5);
     for (size_t i = 0; i < 5; i++)
@@ -53,7 +53,7 @@ void BoardTest::testIsWinX()
     DO_CHECK(board.gameState() == X_WIN);
 }
 
-void BoardTest::testDraw()
+void BoardTest::testGameDraw()
 {
     size_t n = 3;
     Board board(n, n);
@@ -66,14 +66,14 @@ void BoardTest::testDraw()
     DO_CHECK(board.gameState() == DRAW);
 }
 
-void BoardTest::testInterrupting()
+void BoardTest::testGameInterrupted()
 {
     Board board(10, 10);
     board.makeMove(-1, -1, 'X');
     DO_CHECK(board.gameState() == INTERRUPTED);
 }
 
-void BoardTest::testInProgress()
+void BoardTest::testGameInProgress()
 {
     Board board(4, 5);
     for (size_t i = 0; i < 4; i++)
@@ -82,7 +82,7 @@ void BoardTest::testInProgress()
     DO_CHECK(board.gameState() == IN_PROGRESS);
 }
 
-void BoardTest::getTurnNumber1()
+void BoardTest::getTurnNumberAfterOperations1()
 {
     Board board(10, 10);
     for (size_t i = 0; i < 4; i++)
@@ -93,7 +93,7 @@ void BoardTest::getTurnNumber1()
     DO_CHECK(board.getTurnNumber() == 5);
 }
 
-void BoardTest::getTurnNumber2()
+void BoardTest::getTurnNumberAfterOperations2()
 {
     Board board(10, 10);
     for (size_t i = 2; i < 8; i += 2)
@@ -104,51 +104,51 @@ void BoardTest::getTurnNumber2()
     DO_CHECK(board.getTurnNumber() == 4);
 }
 
-void BoardTest::getTurnNumber3()
+void BoardTest::getTurnNumberFirstTurn()
 {
     Board board(10, 10);
     DO_CHECK(board.getTurnNumber() == 1);
 }
 
-void BoardTest::moving1()
+void BoardTest::movingNegativeCoordinates()
 {
     Board board(10, 10);
     DO_CHECK(!board.canMove(-1, -1));
 }
 
-void BoardTest::moving2()
+void BoardTest::movingBigCoordinates()
 {
     Board board(10, 10);
     DO_CHECK(!board.canMove(10, 10));
 }
 
-void BoardTest::moving3()
+void BoardTest::movingOnNonEmptyField()
 {
     Board board(10, 10);
     board.makeMove(0, 0, 'X');
     DO_CHECK(!board.canMove(0, 0));
 }
 
-void BoardTest::moving4()
+void BoardTest::movingGoodMove()
 {
     Board board(10, 10);
     DO_CHECK(board.canMove(0, 0));
 }
 
-void BoardTest::getting1()
+void BoardTest::gettingEmpty()
 {
     Board board(10, 10);
     DO_CHECK(board.get(0, 0) == EMPTY);
 }
 
-void BoardTest::getting2()
+void BoardTest::gettingSignX()
 {
     Board board(10, 10);
     board.makeMove(0, 0, 'X');
     DO_CHECK(board.get(0, 0) == X_SIGN);
 }
 
-void BoardTest::getting3()
+void BoardTest::gettingSignO()
 {
     Board board(10, 10);
     board.makeMove(5, 5, 'O');
