@@ -58,6 +58,9 @@ private:
     static void height1();
     static void height2();
     static void height3();
+
+    static void winLastTurn();
+
 };
 
 

@@ -35,6 +35,8 @@ void BoardTest::runAllTests()
     height2();
     height3();
 
+    winLastTurn();
+
     showFinalResult();
 }
 
@@ -241,6 +243,37 @@ void BoardTest::gameWinVertical()
     }
 
     DO_CHECK(board.gameState() == X_WIN);
+}
+
+void BoardTest::winLastTurn()
+{
+    Board board(5, 5);
+
+    for (size_t i = 0; i < 4; i++)
+    {
+        for (size_t j = 0; j < 4; j++)
+        {
+            board.makeMove(i, j, 'X');
+        }
+    }
+
+    for (size_t i = 0; i < 4; i++)
+    {
+        board.makeMove(i, 4, 'O');
+        board.makeMove(4, i, 'O');
+    }
+
+    board.makeMove(4, 4, 'X');
+
+    DO_CHECK(board.gameState() == X_WIN);
+
+    /*
+        XXXXY
+        XXXXY
+        XXXXY
+        XXXXY
+        YYYYX
+    */
 }
 
 
